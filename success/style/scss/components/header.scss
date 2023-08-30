@@ -1,0 +1,91 @@
+header{
+  background: rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(26px);
+  & > .container{
+    display: flex;
+    justify-content: space-between;
+    & > .logo{}
+    & > nav > .list{
+      display: flex;
+      & > li{
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 144px;
+        &:nth-child(3){
+          & > .nav_light{
+            & > .light{
+              width: 120px;
+            }
+          }
+        }
+        & > .nav_light{
+          position: relative;
+          & > .light{
+            width: 66px;
+            height: 2px;
+            margin-bottom: 15px;
+            background: #343434;
+            transition: .1s ease-in-out;
+            &.hoverActivate{
+              background: #FFF;
+              box-shadow: 0px -3px 11px 10px rgba(255, 255, 255, 0.66);
+            }
+          }
+          & > .light_decor{
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top:-30px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        & > a{
+          color: #555;
+          font-family: Inter;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          text-decoration: none;
+          transition: .1s ease-in-out;
+        }
+        &:first-child{
+          margin-left: 0;
+        }
+
+        //active
+        &.active{
+          cursor: default;
+          & > .nav_light{
+            & > .light{
+              box-shadow: 0px -3px 11px 10px rgba(165, 95, 255, 0.66);
+            }
+
+            & > .light_decor{
+              opacity: 1;
+            }
+          }
+
+          & > a{
+            cursor: default;
+            background: linear-gradient(357deg, rgba(199, 155, 255, 0.00) 0%, rgba(154, 74, 255, 0.64) 42.83%, #9E52FF 57.07%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+      }
+    }
+
+
+    .controlls{
+      display: flex;
+      & > button{
+        margin-top: 30px;
+      }
+    }
+  }
+}

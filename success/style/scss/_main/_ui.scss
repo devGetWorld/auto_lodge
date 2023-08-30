@@ -1,0 +1,31 @@
+//VARIABLE
+$background_color: #101010;
+
+//GLOBAL SETUP
+body {
+  background: $background_color;
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+.container{
+  max-width: 1496px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//button
+
+.btn-ui-contact{
+  border: 2px solid #6FF6FF;
+  background: #363636;
+  box-shadow: 0px 0px 25px 7px rgba(82, 255, 245, 0.40);
+  padding: 11px 26px;
+  color: #88FFF8;
+  font-family: "Roboto";
+  display: block;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  max-height: 50px;
+}
