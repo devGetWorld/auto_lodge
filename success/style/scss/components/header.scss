@@ -1,6 +1,8 @@
 header{
   background: rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(26px);
+  z-index: 10;
+  position: relative;
   & > .container{
     display: flex;
     justify-content: space-between;

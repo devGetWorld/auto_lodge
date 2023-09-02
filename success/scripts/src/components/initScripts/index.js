@@ -2,6 +2,7 @@ import {CarboneCanvas} from "../carbonCanvas/index"
 import {CanvasLine} from "../carbonCanvas/canvasLine"
 import {Optimizator} from "../optimizator/optimizator"
 import {NeonsLight} from "../neonsLight";
+import {Swipers} from "../swipers";
 export class InitScripts {
     private pageId
     constructor(pageId){
@@ -55,5 +56,7 @@ export class InitScripts {
         ]
 
         new Optimizator(argument)
+
+        let initMainSwiper = Swipers.initMainSwiper(document.getElementById("mainSwiper"))
     }
 }
