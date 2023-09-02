@@ -69,17 +69,18 @@
               font-style: normal;
               font-weight: 700;
               line-height: 146.023%; /* 102.216px */
-              background: linear-gradient(282deg, rgba(0, 0, 0, 0.00) -11.81%, #848484 33.3%, #CB93E5 72.49%);
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
               margin-left: 120px;
               position: relative;
+              transition: 1s ease-in-out;
+              color: #424242;
+              text-shadow: 0px 0px 39px transparent;
             }
 
             & > h1{
               margin-bottom: 30px;
               margin-top: 200px;
+              max-width: 836px;
+              line-height: 100%;
             }
 
             & > p{

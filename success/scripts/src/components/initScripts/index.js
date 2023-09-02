@@ -57,6 +57,6 @@ export class InitScripts {
 
         new Optimizator(argument)
 
-        let initMainSwiper = Swipers.initMainSwiper(document.getElementById("mainSwiper"))
+        let initMainSwiper = Swipers.initMainSwiper(document.getElementById("mainSwiper"), initNeonLight.controller_light)
     }
 }
