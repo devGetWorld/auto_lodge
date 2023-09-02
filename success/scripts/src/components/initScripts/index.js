@@ -1,4 +1,7 @@
-import {carboneCanvas} from "../carbonCanvas/index"
+import {CarboneCanvas} from "../carbonCanvas/index"
+import {CanvasLine} from "../carbonCanvas/canvasLine"
+import {Optimizator} from "../optimizator/optimizator"
+import {NeonsLight} from "../neonsLight";
 export class InitScripts {
     private pageId
     constructor(pageId){
@@ -11,6 +14,7 @@ export class InitScripts {
             case "main-page":
                 //init scripts
                 this.initMainPage()
+
                 break
         }
     }
@@ -19,6 +23,37 @@ export class InitScripts {
         const width = document.querySelector(".home__section").offsetWidth
         const height = document.querySelector(".home__section").offsetHeight
 
-        let initBG_canvas = new carboneCanvas(document.getElementById("bg_canvas_carbons"), width, height)
+        let initBG_canvas = new CarboneCanvas(document.getElementById("carbone_container"), width, height)
+
+        let argument = {
+            canvas: document.getElementById("canvasLineCarbone"),
+            width: document.getElementById("carbone_container").width,
+            height: document.getElementById("carbone_container").height
+        }
+
+        let initCanvasBgLine = new CanvasLine(document.getElementById("carbone_container"), argument)
+        let initNeonLight = new NeonsLight(document.querySelectorAll(".initlight"))
+
+        argument = [
+            {
+                type: "carboneAnimation",
+                container: initBG_canvas.containerId,
+                id: initBG_canvas.animationStatus,
+                reset: initBG_canvas.resetAnimation
+            },
+            {
+                type: "carboneLine",
+                container: initBG_canvas.containerId,
+                action: initCanvasBgLine.controller
+            },
+
+            {
+                type: "lightAnim",
+                container: initNeonLight.lights_export,
+                action: initNeonLight.controller_light
+            }
+        ]
+
+        new Optimizator(argument)
     }
 }

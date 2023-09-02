@@ -21,6 +21,10 @@ body {
   text-rendering: optimizeSpeed;
 }
 
+body, html{
+  overflow-x: hidden;
+}
+
 
 /* Box sizing normalization */
 *,

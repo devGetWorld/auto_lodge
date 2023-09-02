@@ -5,6 +5,7 @@ $background_color: #101010;
 body {
   background: $background_color;
   font-family: "Inter", "Roboto", sans-serif;
+  min-height: 10000px;
 }
 
 .container{
