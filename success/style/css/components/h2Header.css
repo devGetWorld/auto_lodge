@@ -1,0 +1,40 @@
+.h2header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 130px;
+}
+.h2header > .wrapper > h2 {
+  color: #E2E2E2;
+  font-family: Inter;
+  font-size: 78px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+.h2header > .wrapper > .fakeLine {
+  width: 640px;
+  height: 12px;
+  border-radius: 0px 0px 11px 11px;
+  background: #9CFFA6;
+  -webkit-box-shadow: 0px 0px 37px 12px rgba(82, 255, 99, 0.8);
+          box-shadow: 0px 0px 37px 12px rgba(82, 255, 99, 0.8);
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+.h2header > .wrapper:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}

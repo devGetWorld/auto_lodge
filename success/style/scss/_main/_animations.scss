@@ -4,6 +4,10 @@
   animation: keyframes_navigations_hover 2s forwards;
 }
 
+.animation_turnOnLight {
+  animation: keyframes_turnOnLight 1.5s forwards;
+}
+
 @keyframes keyframes_navigations_hover {
       0% {
         opacity: 0;
@@ -63,4 +67,54 @@
       100% {
         opacity: 1;
       }
+}
+
+
+@keyframes keyframes_turnOnLight {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  23% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  61% {
+    opacity: .2;
+  }
+  63% {
+    opacity: 1;
+  }
+
+  64% {
+    opacity: .2;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: .2;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

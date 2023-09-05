@@ -1,7 +1,7 @@
 import {CarboneCanvas} from "../carbonCanvas/index"
 import {CanvasLine} from "../carbonCanvas/canvasLine"
 import {Optimizator} from "../optimizator/optimizator"
-import {NeonsLight} from "../neonsLight";
+import {NeonsLight} from "../neonsLight/index";
 import {Swipers} from "../swipers";
 export class InitScripts {
     private pageId
@@ -33,8 +33,9 @@ export class InitScripts {
         }
 
         let initCanvasBgLine = new CanvasLine(document.getElementById("carbone_container"), argument)
-        let initNeonLight = new NeonsLight(document.querySelectorAll(".initlight"))
+        let initNeonLight = new NeonsLight(document.querySelectorAll(".initlight"),[document.getElementById("mainLightLeft"),document.getElementById("mainLightRight")])
 
+        console.log(initNeonLight)
         argument = [
             {
                 type: "carboneAnimation",
@@ -51,12 +52,23 @@ export class InitScripts {
             {
                 type: "lightAnim",
                 container: initNeonLight.lights_export,
-                action: initNeonLight.controller_light
+                action: initNeonLight.controller_light,
+                mainLight: initNeonLight.mainLight,
+                add_light: initNeonLight.add_light
             }
         ]
 
         new Optimizator(argument)
 
-        let initMainSwiper = Swipers.initMainSwiper(document.getElementById("mainSwiper"), initNeonLight.controller_light)
+        argument = {
+            id: initNeonLight.mainLight,
+            action: initNeonLight.controller_light
+        }
+
+
+
+        let initMainSwiper = Swipers.initMainSwiper(document.getElementById("mainSwiper"), argument)
+        /*newCarSwiperInit*/ Swipers.initNewCarSwiper(document.getElementById("swiper_newCar"))
+
     }
 }

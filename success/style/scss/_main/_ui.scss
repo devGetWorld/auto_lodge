@@ -15,11 +15,14 @@ body {
   margin-right: auto;
 }
 
+section{
+  padding: 77px 0;
+}
+
 //button
 
 .btn-ui-contact{
   border: 2px solid #6FF6FF;
-  background: #363636;
   box-shadow: 0px 0px 25px 7px rgba(82, 255, 245, 0.40);
   padding: 11px 26px;
   color: #88FFF8;
@@ -29,4 +32,102 @@ body {
   font-style: normal;
   font-weight: 500;
   max-height: 50px;
+  transition: .3s ease-in-out;
+  &:hover{
+    box-shadow: 0px 0px 30px 10px rgba(82, 255, 245, 0.60);
+    border-radius: 10px;
+    text-shadow: 0px 0px 30px rgba(82, 255, 245, 0.60);
+  }
+  &:active{
+    transition: .001s ease;
+    box-shadow: 0px 0px 30px 10px rgba(54, 54, 54, 0.6);
+  }
+}
+
+.btn-ui-inventory{
+  color: #D3D3D3;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: linear-gradient(94deg, #1E1E1E -3.84%, #9C1EFF 93.29%);
+  box-shadow: 11px 3px 21px 4px rgba(170, 62, 255, 0.55);
+  padding: 16px 35px;
+  transition: .3s ease-in-out;
+  &:hover{
+    box-shadow: 0px 0px 30px 10px rgba(155, 27, 255, 0.55);
+    border-radius: 10px;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.88);
+  }
+  &:active{
+    transition: .001s ease;
+    box-shadow: 0px 0px 30px 10px rgba(54, 54, 54, 0.6);
+  }
+}
+
+
+.btn-ui-view_details{
+  color: #D3D3D3;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: linear-gradient(94deg, #1E1E1E -3.84%, #9C1EFF 93.29%);
+  box-shadow: 11px 3px 21px 4px rgba(170, 62, 255, 0.55);
+  padding: 10px 42px;
+  transition: .3s ease-in-out;
+  &:hover{
+    box-shadow: 0px 0px 30px 10px rgba(155, 27, 255, 0.55);
+    border-radius: 10px;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.88);
+  }
+  &:active{
+    transition: .001s ease;
+    box-shadow: 0px 0px 30px 10px rgba(54, 54, 54, 0.6);
+  }
+}
+
+//checkbox -------------------------------------------
+
+.checkbox-ui-1{
+  border-radius: 16px;
+  border: 3px solid #1E1E1E;
+  background: #292929;
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 113px;
+  align-items: center;
+  padding: 6px 11px;
+  overflow:hidden;
+  & > .side{
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    z-index: 1;
+    &:last-child{
+      margin-right: 0;
+    }
+    & > span{
+      color: #939393;
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  & > .checked{
+    position: absolute;
+    width: 53px;
+    height: 48px;
+    border-radius: 19px 15px 16px 19px;
+    background: #FF5656;
+    right: 0;
+    top: 0;
+    z-index: 0;
+  }
 }

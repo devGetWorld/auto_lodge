@@ -13,23 +13,56 @@ export class Optimizator {
 
     }
 
+
     private watchProccess(){
         this.elements.forEach((el) => {
 
             if(el.type === "lightAnim"){
-                let getElements = el.container
-                getElements.forEach((element) => {
-                    let getContainer = element.id
-                    let DiffrentPosition = this.getDiffrentPosition(getContainer)
+                if(el.container.length > 0){
+                    let getElements = el.container
+                    getElements.forEach((element) => {
+                        let getContainer = element.id
+                        let DiffrentPosition = this.getDiffrentPosition(getContainer)
 
-                    //console.log(DiffrentPosition)
-                    if(DiffrentPosition > 300){
-                        el.action("turnOff", element)
-                    }else{
-                        el.action("turnOn", element)
-                    }
+                        if(DiffrentPosition > 600){
+                            el.action("turnOff", element)
+                        }else{
+                            el.action("turnOn", element)
+                        }
 
-                })
+                    })
+                }
+
+                if(el.mainLight.length > 0){
+                    let getElements = el.mainLight
+                    getElements.forEach((element) => {
+                        let getContainer = element.id
+                        let DiffrentPosition = this.getDiffrentPosition(getContainer)
+
+                        if(DiffrentPosition > 200){
+                            el.action("turnOff", element)
+                        }else{
+                            el.action("turnOn", element)
+                        }
+
+                    })
+                }
+
+                if(el.add_light.length > 0){
+                    let getElements = el.add_light
+                    getElements.forEach((element) => {
+                        let getContainer = element.id
+                        let DiffrentPosition = this.getDiffrentPosition(getContainer)
+
+                        if(DiffrentPosition > 300){
+                            el.action("turnOff", element)
+                        }else{
+                            el.action("turnOn", element)
+                        }
+
+                    })
+                }
+
 
                 return
             }
