@@ -92,42 +92,66 @@ section{
 //checkbox -------------------------------------------
 
 .checkbox-ui-1{
+  user-select: none;
   border-radius: 16px;
   border: 3px solid #1E1E1E;
   background: #292929;
   display: flex;
   position: relative;
   width: 100%;
-  max-width: 113px;
+  max-width: 120px;
   align-items: center;
   padding: 6px 11px;
   overflow:hidden;
+  cursor: pointer;
+  justify-content: space-between;
   & > .side{
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 20px;
     position: relative;
     z-index: 1;
+    &.active{
+      & > span{
+        color: #3F3F3F;
+      }
+    }
     &:last-child{
       margin-right: 0;
     }
     & > span{
-      color: #939393;
+      color: #3F3F3F;
       font-family: Inter;
       font-size: 22px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      transition: .3s ease-in-out;
     }
   }
 
   & > .checked{
     position: absolute;
-    width: 53px;
-    height: 48px;
-    border-radius: 19px 15px 16px 19px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
     background: #FF5656;
-    right: 0;
-    top: 0;
+    right: -7px;
+    top: -7px;
     z-index: 0;
+    transition: .3s ease-in-out;
+    &.active{
+      right: 50px;
+      width: 70px;
+      background: #73FF81;
+    }
   }
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked + .checked {
+    width: 100%;
+    background-color: green;
+  }
+
 }

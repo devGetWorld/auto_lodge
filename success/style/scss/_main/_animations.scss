@@ -5,7 +5,7 @@
 }
 
 .animation_turnOnLight {
-  animation: keyframes_turnOnLight 1.5s forwards;
+  animation: keyframes_turnOnLight 1s forwards;
 }
 
 @keyframes keyframes_navigations_hover {
@@ -91,28 +91,10 @@
     opacity: 1;
   }
 
-  60% {
-    opacity: 1;
+  70% {
+    opacity: .5;
   }
 
-  61% {
-    opacity: .2;
-  }
-  63% {
-    opacity: 1;
-  }
-
-  64% {
-    opacity: .2;
-  }
-
-  66% {
-    opacity: 1;
-  }
-
-  68% {
-    opacity: .2;
-  }
 
   100% {
     opacity: 1;

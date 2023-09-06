@@ -417,6 +417,42 @@
         <section class="registration__section">
             <div class="container">
 
+                <div class="background">
+                    <div class="road" id="mainPageRoad">
+
+                        <div class="carFromTop" id="mainPageCarDetecterTop">
+                            <img src="success/resourse/static/decorations/car_from_top.png" alt="whiteCar" />
+                        </div>
+
+                        <svg height="1065" viewBox="0 0 1626 1065" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_d_1015_32)">
+                                <path d="M1599 22.3936V892.802H268V1042M26.5 1042L33.9845 742.642H1413.65L1418.3 26.1639" stroke="url(#paint0_linear_1015_32)" stroke-width="9" shape-rendering="crispEdges"/>
+                            </g>
+                            <path d="M1507 26.2786V818.588H143.97L137 1032.42" stroke="url(#paint1_linear_1015_32)" stroke-width="6" stroke-linecap="round" stroke-dasharray="52 52"/>
+                            <defs>
+                                <filter id="filter0_d_1015_32" x="0.00140381" y="0.393555" width="1625.5" height="1063.72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset/>
+                                    <feGaussianBlur stdDeviation="11"/>
+                                    <feComposite in2="hardAlpha" operator="out"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.721569 0 0 0 0 0.721569 0 0 0 0.83 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1015_32"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1015_32" result="shape"/>
+                                </filter>
+                                <linearGradient id="paint0_linear_1015_32" x1="1514.97" y1="57.4336" x2="115.755" y2="1121.86" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0.28125" stop-color="#FF7B7B"/>
+                                    <stop offset="1" stop-color="#FF64F9" stop-opacity="0"/>
+                                </linearGradient>
+                                <linearGradient id="paint1_linear_1015_32" x1="833.485" y1="26.2786" x2="833.485" y2="1032.42" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FFB8B8"/>
+                                    <stop offset="1" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
                 <div class="header h2header">
                     <div class="initlight wrapper" data-color="#FF8F8F" data-shadow="rgba(255, 77, 77, 0.80)">
                         <h2>Registration calculator</h2>
@@ -428,6 +464,15 @@
                     <div class="calculateData">
                         <div class="wrapper calculate">
                             <div class="visivility">
+                                <div class="background">
+                                    <img src="/success/resourse/static/decorations/mini-strar.png" alt="star_bg">
+                                    <img src="/success/resourse/static/decorations/mini-strar.png" alt="star_bg">
+                                    <img src="/success/resourse/static/decorations/mini-strar.png" alt="star_bg">
+                                    <img src="/success/resourse/static/decorations/mini-strar.png" alt="star_bg">
+                                    <img src="/success/resourse/static/decorations/mini-strar.png" alt="star_bg">
+                                    <img src="/success/resourse/static/decorations/mini-strar.png" alt="star_bg">
+                                    <img src="/success/resourse/static/decorations/mini-strar.png" alt="star_bg">
+                                </div>
                                 <ul class="list">
                                     <li class="option">
                                         <label for="priceCalculate">Price car:</label>
@@ -437,11 +482,11 @@
                                     <li class="option">
                                         <label for="checkPlatesCalculate">Do you have
                                             a&nbsp;plates ?:</label>
-                                       <div class="checkbox-ui-1">
+                                       <div class="checkbox-ui-1 initCheckBox">
                                             <div class="side">
                                                 <span>Yes</span>
                                             </div>
-                                           <div class="side">
+                                           <div class="side active">
                                                <span>No</span>
                                            </div>
                                            <div class="checked"></div>
@@ -452,10 +497,53 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="wrapper finish"></div>
+                        <div class="wrapper finish">
+                            <div class="holder">
+                                <p>Waiting for data..</p>
+                            </div>
+
+                            <div class="list">
+                                <div class="leftSide">
+                                    <span>TAX (7%):</span>
+                                    <span>Title:</span>
+                                    <span>Plates:</span>
+                                    <span>Docs Fee:</span>
+                                </div>
+                                <div class="rightSide">
+                                    <div class="wrapper">
+                                        <div class="span">1000$</div>
+                                        <div class="help">
+                                            <div class="terd">
+                                                <p>If you live in Chicago tax may vary ( 7.0%-8.5%)</p>
+                                            </div>
+                                            <span>?</span>
+                                        </div>
+                                    </div>
+                                    <div class="wrapper">
+                                        <div class="span">1000$</div>
+                                    </div>
+                                    <div class="wrapper">
+                                        <div class="span">1000$</div>
+                                    </div>
+                                    <div class="wrapper">
+                                        <div class="span">1000$</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="line"></div>
+
+                            <div class="wrapper">
+                                <p>Registration Total: <span>4000$</span></p>
+                            </div>
+
+                        </div>
 
                     </div>
-                    <div class="resultWrapper"></div>
+                    <div class="resultWrapper">
+                        <div class="line"></div>
+                        <p>Total to Pay: <span>14 000$</span></p>
+                    </div>
                 </div>
 
             </div>

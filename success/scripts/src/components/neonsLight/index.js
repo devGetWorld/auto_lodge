@@ -89,7 +89,6 @@ export class NeonsLight{
                 element.style.background = getColor
                 element.style.boxShadow = `0px 0px 250px 136px ${getShadow}`
             }else{
-                console.log(element)
                 let data = {color: element.getAttribute("data-color"), shadow: element.getAttribute("data-shadow")}
                 let text_color = element.querySelector("h2")
                 let bg_color = element.querySelector(".fakeLine")

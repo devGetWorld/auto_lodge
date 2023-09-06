@@ -3,6 +3,8 @@ import {CanvasLine} from "../carbonCanvas/canvasLine"
 import {Optimizator} from "../optimizator/optimizator"
 import {NeonsLight} from "../neonsLight/index";
 import {Swipers} from "../swipers";
+import {checkbox} from "../../module/checkbox";
+import {RoadAnimation} from "../roadAnimation";
 export class InitScripts {
     private pageId
     constructor(pageId){
@@ -34,8 +36,8 @@ export class InitScripts {
 
         let initCanvasBgLine = new CanvasLine(document.getElementById("carbone_container"), argument)
         let initNeonLight = new NeonsLight(document.querySelectorAll(".initlight"),[document.getElementById("mainLightLeft"),document.getElementById("mainLightRight")])
+        let initRoadCar = new RoadAnimation(document.getElementById("mainPageRoad"), [document.getElementById("mainPageCarDetecterTop")])
 
-        console.log(initNeonLight)
         argument = [
             {
                 type: "carboneAnimation",
@@ -55,6 +57,11 @@ export class InitScripts {
                 action: initNeonLight.controller_light,
                 mainLight: initNeonLight.mainLight,
                 add_light: initNeonLight.add_light
+            },
+            {
+                type: "animationCar",
+                container: document.querySelector(".registration__section"),
+                action: initRoadCar.getAndCalcData,
             }
         ]
 
@@ -65,10 +72,12 @@ export class InitScripts {
             action: initNeonLight.controller_light
         }
 
-
+        //init checkboxs
+        new checkbox()
 
         let initMainSwiper = Swipers.initMainSwiper(document.getElementById("mainSwiper"), argument)
         /*newCarSwiperInit*/ Swipers.initNewCarSwiper(document.getElementById("swiper_newCar"))
+
 
     }
 }

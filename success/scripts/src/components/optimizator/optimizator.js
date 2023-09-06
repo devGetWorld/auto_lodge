@@ -1,5 +1,6 @@
 export class Optimizator {
     private elements
+    private OldPosition = window.scrollY
     constructor(elements) {
         this.elements = elements
 
@@ -15,6 +16,7 @@ export class Optimizator {
 
 
     private watchProccess(){
+
         this.elements.forEach((el) => {
 
             if(el.type === "lightAnim"){
@@ -76,7 +78,23 @@ export class Optimizator {
                 this.turnOnProccess(el)
             }
 
+            //ANIMATION_CAR
+            //get dist
+            getContainer = el.container
+            diffrentPosition = this.getDiffrentPosition(getContainer)
+
+            if(el.type === "animationCar" && diffrentPosition < 900){
+                const data = {
+                    oldPosition: this.OldPosition,
+                    newPosition: window.scrollY
+                }
+
+                el.action(data)
+            }
+
         });
+
+        this.OldPosition = window.scrollY
 
     }
 
