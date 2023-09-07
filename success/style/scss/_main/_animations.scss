@@ -100,3 +100,34 @@
     opacity: 1;
   }
 }
+
+@keyframes keyframes_circle {
+  0% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: .6;
+  }
+
+  23% {
+    opacity: .4
+  }
+
+  30% {
+    opacity: .6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: .4;
+  }
+
+
+  100% {
+    opacity: 1;
+  }
+}

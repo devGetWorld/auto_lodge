@@ -25,6 +25,22 @@ export class Swipers {
         return mainSwiper;
     }
 
+    public static initReviwsSwiper(dom, argument){
+        //swiper_reviews_main
+
+        new Swiper(dom, {
+            loop: false,
+            slidesPerView: 3,
+            spaceBetween: 75,
+            slidesPerGroup: 1,
+            navigation: {
+                prevEl: argument.left,
+                nextEl: argument.right,
+            },
+        });
+
+    }
+
     public static  initNewCarSwiper(dom){
         const btnLeft = document.getElementById("swiperButton_toPrev_newCar")
         const btnRight = document.getElementById("swiperButton_toNext_newCar")

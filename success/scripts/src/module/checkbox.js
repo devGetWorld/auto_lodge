@@ -17,6 +17,7 @@ export class checkbox {
     }
 
     private eventClick(e){
+
         const input = e.currentTarget.querySelector('input[type="checkbox"]');
 
         if (input) {
@@ -33,7 +34,13 @@ export class checkbox {
 
         el.querySelector(".checked").classList.add("active")
         el.querySelector(".side").classList.add("active")
-        input.checked = true
+
+        let event = new MouseEvent("click", {
+            view: window,
+        })
+
+        input.dispatchEvent(event)
+
     }
 
     private TurnOff(el, input){
@@ -41,7 +48,13 @@ export class checkbox {
 
         el.querySelector(".checked").classList.remove("active")
         el.querySelectorAll(".side")[1].classList.add("active")
-        input.checked = false
+
+        let event = new MouseEvent("click", {
+            view: window,
+        })
+
+        input.dispatchEvent(event)
+
     }
 
 }

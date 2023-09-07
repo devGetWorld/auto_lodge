@@ -10,7 +10,7 @@ export class Optimizator {
         });
 
 
-        document.addEventListener("scroll", () => this.watchProccess() )
+        window.addEventListener("scroll", () => this.watchProccess() )
 
     }
 
@@ -80,19 +80,21 @@ export class Optimizator {
 
             //ANIMATION_CAR
             //get dist
-            getContainer = el.container
-            diffrentPosition = this.getDiffrentPosition(getContainer)
-
-            if(el.type === "animationCar" && diffrentPosition < 900){
-                const data = {
-                    oldPosition: this.OldPosition,
-                    newPosition: window.scrollY
-                }
-
-                el.action(data)
-            }
+            // getContainer = el.container
+            // diffrentPosition = this.getDiffrentPosition(getContainer)
+            //
+            // if(el.type === "animationCar" && diffrentPosition < 900){
+            //     const data = {
+            //         oldPosition: this.OldPosition,
+            //         newPosition: window.scrollY
+            //     }
+            //
+            //     el.action(data)
+            // }
 
         });
+
+
 
         this.OldPosition = window.scrollY
 

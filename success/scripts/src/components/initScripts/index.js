@@ -5,6 +5,8 @@ import {NeonsLight} from "../neonsLight/index";
 import {Swipers} from "../swipers";
 import {checkbox} from "../../module/checkbox";
 import {RoadAnimation} from "../roadAnimation";
+import {InputPrice} from "../../module/input_price";
+import {MapLocation} from "../../module/mapLocation";
 export class InitScripts {
     private pageId
     constructor(pageId){
@@ -36,7 +38,7 @@ export class InitScripts {
 
         let initCanvasBgLine = new CanvasLine(document.getElementById("carbone_container"), argument)
         let initNeonLight = new NeonsLight(document.querySelectorAll(".initlight"),[document.getElementById("mainLightLeft"),document.getElementById("mainLightRight")])
-        let initRoadCar = new RoadAnimation(document.getElementById("mainPageRoad"), [document.getElementById("mainPageCarDetecterTop")])
+        let initRoadCar = new RoadAnimation(document.getElementById("canvasAnimationRoad"), document.querySelector(".registration__section"))
 
         argument = [
             {
@@ -72,12 +74,23 @@ export class InitScripts {
             action: initNeonLight.controller_light
         }
 
-        //init checkboxs
-        new checkbox()
-
-        let initMainSwiper = Swipers.initMainSwiper(document.getElementById("mainSwiper"), argument)
+        Swipers.initMainSwiper(document.getElementById("mainSwiper"), argument)
+        Swipers.initReviwsSwiper(document.getElementById("swiper_reviews_main"),
+            {
+                left: document.getElementById("swiper_left_review"),
+                right: document.getElementById("swiper_right_review"),
+            })
         /*newCarSwiperInit*/ Swipers.initNewCarSwiper(document.getElementById("swiper_newCar"))
 
 
+        let initInputsDom = document.querySelectorAll(".initInputPrice")
+        let initInputs = new InputPrice(initInputsDom)
+
+        //init checkboxs
+        new checkbox()
+
+        new MapLocation()
+
     }
 }
+

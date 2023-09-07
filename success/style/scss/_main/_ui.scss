@@ -89,6 +89,40 @@ section{
   }
 }
 
+.btn-ui-google, .btn-ui-apple{
+  width: 100%;
+  height: auto;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 18px 15px;
+  transition: .3s ease-in-out;
+  text-decoration: none;
+  word-wrap: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > img{
+    margin-left: 10px;
+  }
+  &:hover{
+    opacity: .8;
+  }
+}
+
+.btn-ui-google{
+  border-radius: 20px 0px;
+  background: #24BC73;
+}
+
+.btn-ui-apple{
+  border-radius: 0px 20px;
+  background: #3E3E3E;
+}
+
 //checkbox -------------------------------------------
 
 .checkbox-ui-1{
@@ -154,4 +188,31 @@ section{
     background-color: green;
   }
 
+}
+
+//selectors ui
+
+.selector-map-ui{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 22px;
+  background: #282828;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  & > button{
+    position: relative;
+    z-index: 2;
+  }
+  & > .selectedLine{
+    width: 75px;
+    height: 69px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #87FF4F;
+    z-index: 1;
+  }
 }

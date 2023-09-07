@@ -10,6 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/context-filter-polyfill/dist/index.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+            defer
+    ></script>
     <title>Auto Lodge</title>
 </head>
 <body>
@@ -415,42 +419,19 @@
         </section>
 
         <section class="registration__section">
+            <div class="background">
+                <img src="/success/resourse/static/background/decor_c_left.png" alt="bg"/>
+            </div>
             <div class="container">
 
                 <div class="background">
-                    <div class="road" id="mainPageRoad">
+                    <canvas id="canvasAnimationRoad"></canvas>
+                    <img class="line_1" src="/success/resourse/static/background/line-1.png" alt="line">
+                    <img class="line_2" src="/success/resourse/static/background/line-2.png" alt="line">
+                    <img class="c1" src="/success/resourse/static/background/circle_bg.svg" alt="circle" />
+                    <img class="c2" src="/success/resourse/static/background/circle_bg.svg" alt="circle" />
+                    <img class="c3" src="/success/resourse/static/background/circle_bg.svg" alt="circle" />
 
-                        <div class="carFromTop" id="mainPageCarDetecterTop">
-                            <img src="success/resourse/static/decorations/car_from_top.png" alt="whiteCar" />
-                        </div>
-
-                        <svg height="1065" viewBox="0 0 1626 1065" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g filter="url(#filter0_d_1015_32)">
-                                <path d="M1599 22.3936V892.802H268V1042M26.5 1042L33.9845 742.642H1413.65L1418.3 26.1639" stroke="url(#paint0_linear_1015_32)" stroke-width="9" shape-rendering="crispEdges"/>
-                            </g>
-                            <path d="M1507 26.2786V818.588H143.97L137 1032.42" stroke="url(#paint1_linear_1015_32)" stroke-width="6" stroke-linecap="round" stroke-dasharray="52 52"/>
-                            <defs>
-                                <filter id="filter0_d_1015_32" x="0.00140381" y="0.393555" width="1625.5" height="1063.72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                    <feOffset/>
-                                    <feGaussianBlur stdDeviation="11"/>
-                                    <feComposite in2="hardAlpha" operator="out"/>
-                                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.721569 0 0 0 0 0.721569 0 0 0 0.83 0"/>
-                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1015_32"/>
-                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1015_32" result="shape"/>
-                                </filter>
-                                <linearGradient id="paint0_linear_1015_32" x1="1514.97" y1="57.4336" x2="115.755" y2="1121.86" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0.28125" stop-color="#FF7B7B"/>
-                                    <stop offset="1" stop-color="#FF64F9" stop-opacity="0"/>
-                                </linearGradient>
-                                <linearGradient id="paint1_linear_1015_32" x1="833.485" y1="26.2786" x2="833.485" y2="1032.42" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FFB8B8"/>
-                                    <stop offset="1" stop-opacity="0"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
                 </div>
 
                 <div class="header h2header">
@@ -476,12 +457,11 @@
                                 <ul class="list">
                                     <li class="option">
                                         <label for="priceCalculate">Price car:</label>
-                                        <input type="text" id="priceCalculate" class="initInputPrice" data-type="price" placeholder="100 000$" />
+                                        <input data-plates="checkPlatesCalculate" data-output="priceOutput" type="text" id="priceCalculate" class="initInputPrice" maxlength="9" data-type="price" placeholder="100 000$" />
                                     </li>
 
                                     <li class="option">
-                                        <label for="checkPlatesCalculate">Do you have
-                                            a&nbsp;plates ?:</label>
+                                        <label for="checkPlatesCalculate">Do you have license plates?:</label>
                                        <div class="checkbox-ui-1 initCheckBox">
                                             <div class="side">
                                                 <span>Yes</span>
@@ -491,15 +471,15 @@
                                            </div>
                                            <div class="checked"></div>
                                            <!--hidden-->
-                                           <input type="checkbox" id="checkPlatesCalculate" data-type="check" />
+                                           <input style="display: block" type="checkbox" id="checkPlatesCalculate" data-type="check" />
                                        </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="wrapper finish">
+                        <div class="wrapper finish" id="priceOutput">
                             <div class="holder">
-                                <p>Waiting for data..</p>
+                                <p>The price of the car must be above $999..</p>
                             </div>
 
                             <div class="list">
@@ -511,7 +491,7 @@
                                 </div>
                                 <div class="rightSide">
                                     <div class="wrapper">
-                                        <div class="span">1000$</div>
+                                        <div class="span tax__input">1000$</div>
                                         <div class="help">
                                             <div class="terd">
                                                 <p>If you live in Chicago tax may vary ( 7.0%-8.5%)</p>
@@ -520,13 +500,13 @@
                                         </div>
                                     </div>
                                     <div class="wrapper">
-                                        <div class="span">1000$</div>
+                                        <div class="span title__input">1000$</div>
                                     </div>
                                     <div class="wrapper">
-                                        <div class="span">1000$</div>
+                                        <div class="span plates__input">1000$</div>
                                     </div>
                                     <div class="wrapper">
-                                        <div class="span">1000$</div>
+                                        <div class="span docs__input">1000$</div>
                                     </div>
                                 </div>
                             </div>
@@ -534,7 +514,7 @@
                             <div class="line"></div>
 
                             <div class="wrapper">
-                                <p>Registration Total: <span>4000$</span></p>
+                                <p>Registration Total: <span><span class="reg__total">4000</span>$</span></p>
                             </div>
 
                         </div>
@@ -542,10 +522,203 @@
                     </div>
                     <div class="resultWrapper">
                         <div class="line"></div>
-                        <p>Total to Pay: <span>14 000$</span></p>
+                        <p>Total to Pay: <span><span class="totalToPay">0</span>$</span></p>
+                    </div>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <section class="section__rewievs">
+            <div class="background">
+                <img class="leftLine" src="/success/resourse/static/decorations/left_line_rew.png" alt="line" />
+                <img class="bottomLine" src="/success/resourse/static/decorations/bottom_line.png" alt="line" />
+                <img class="left_top" src="/success/resourse/static/decorations/left_cube_rew.png" alt="cube" />
+
+            </div>
+            <div class="container">
+                <div class="header h2header">
+                    <div class="initlight wrapper" data-color="#FFEF9C" data-shadow="rgba(255, 224, 65, 0.80)">
+                        <h2>Our Reviews</h2>
+                        <div class="fakeLine"></div>
+                    </div>
+                </div>
+
+                <div class="swiper-container">
+                    <div class="swiper_btn">
+                        <button id="swiper_left_review" class="swiper-button-disabled" disabled="" tabindex="-1" aria-label="Previous slide" aria-controls="swiper-wrapper-827106295f410f3e8f" aria-disabled="true">
+                            <img src="/success/resourse/static/icon/swiper_left.svg" alt="swiperLeftButton">
+                        </button>
+                    </div>
+                    <div class="swiper" id="swiper_reviews_main">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="wrapper">
+                                    <div class="body">
+                                        <img src="/success/resourse/static/icon/twiter.png" alt="twiter">
+
+                                        <p>Excellent service! Found the perfect car quickly. Trustworthy sellers and seamless transaction. Highly recommend</p>
+                                    </div>
+
+                                    <div class="user_wrapper">
+                                        <div class="user_photo"></div>
+                                        <span class="name">FirstName LastName</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="wrapper">
+                                    <div class="body">
+                                        <img src="/success/resourse/static/icon/twiter.png" alt="twiter">
+
+                                        <p>Excellent service! Found the perfect car quickly. Trustworthy sellers and seamless transaction. Highly recommend</p>
+                                    </div>
+
+                                    <div class="user_wrapper">
+                                        <div class="user_photo"></div>
+                                        <span class="name">FirstName LastName</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="wrapper">
+                                    <div class="body">
+                                        <img src="/success/resourse/static/icon/twiter.png" alt="twiter">
+
+                                        <p>Excellent service! Found the perfect car quickly. Trustworthy sellers and seamless transaction. Highly recommend</p>
+                                    </div>
+
+                                    <div class="user_wrapper">
+                                        <div class="user_photo"></div>
+                                        <span class="name">FirstName LastName</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="wrapper">
+                                    <div class="body">
+                                        <img src="/success/resourse/static/icon/twiter.png" alt="twiter">
+
+                                        <p>Excellent service! Found the perfect car quickly. Trustworthy sellers and seamless transaction. Highly recommend</p>
+                                    </div>
+
+                                    <div class="user_wrapper">
+                                        <div class="user_photo"></div>
+                                        <span class="name">FirstName LastName</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="wrapper">
+                                    <div class="body">
+                                        <img src="/success/resourse/static/icon/twiter.png" alt="twiter">
+
+                                        <p>Excellent service! Found the perfect car quickly. Trustworthy sellers and seamless transaction. Highly recommend</p>
+                                    </div>
+
+                                    <div class="user_wrapper">
+                                        <div class="user_photo"></div>
+                                        <span class="name">FirstName LastName</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="swiper_btn">
+                        <button id="swiper_right_review" class="swiper-button-disabled" disabled="" tabindex="-1" aria-label="Previous slide" aria-controls="swiper-wrapper-827106295f410f3e8f" aria-disabled="true">
+                            <img src="/success/resourse/static/icon/swiper_right.svg" alt="swiperLeftButton">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section__map">
+            <div class="bg_map">
+                <div id="GoogleMap"></div>
+            </div>
+
+            <div class="container">
+                <div class="header h2header">
+                    <div class="initlight wrapper" data-color="#FF88BA" data-shadow="rgba(255, 46, 134, 0.95)">
+                        <h2>Contact US</h2>
+                        <div class="fakeLine"></div>
+                    </div>
+                </div>
+
+
+                <div class="direction_wrapper">
+                    <div class="wrapper">
+                        <div class="section logo">
+                            <img src="/success/resourse/static/logo/logo-258_autoLodge.png" alt="logo" />
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="section input">
+                            <span class="title">Addres</span>
+
+                            <div class="containerInput">
+                                <label class="last" for="">Addres:</label>
+                                <div class="wrapperInput">
+                                    <input type="text" readonly value="2617 S IL Route 47 Woodstock, IL 60098" id="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section buttons">
+                            <a href="#" class="btn-ui-google">
+                                open with Google Maps
+                                <img src="/success/resourse/static/icon/googleIcon.png" alt="google" />
+                            </a>
+                            <a href="#" class="btn-ui-apple">
+                                open with Apple Maps
+                                <img src="/success/resourse/static/icon/appleIcon.png" alt="apple" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="wrapper">
+                        <h3>Contact info</h3>
+                        <ul class="list">
+                            <li>
+                                <div class="left">
+                                    <img src="/success/resourse/static/icon/phone.png" alt="phone"/>
+                                </div>
+                                <div class="label">
+                                    <div>office: <a href="#">(847)-669-0339</a></div>
+                                    <div>cell: <a href="#">(630)-995-6942</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="left">
+                                    <img src="/success/resourse/static/icon/point.png" alt="point"/>
+                                </div>
+                                <div class="label">
+                                    <div>Addres: <a href="#"> 2617 S IL Route 47
+                                        Woodstock, IL 60098</a></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="left">
+                                    <img src="/success/resourse/static/icon/time_footer.png" alt="phone"/>
+                                </div>
+                                <div class="label">
+                                    <div>Mon - Fri: <span class="green">8:00</span> - <span class="red">17:00</span></div>
+                                    <div>Sat: <span class="green">9:00</span> - <span class="red">14:00</span></div>
+                                    <div><span class="red">Sun: closed</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
