@@ -155,7 +155,7 @@
             </nav>
 
             <div class="controlls">
-                <button class="btn-ui-contact">Contact me</button>
+                <button class="btn-ui-contact" data-popup=".contactME" >Contact me</button>
             </div>
         </div>
     </header>
@@ -722,6 +722,149 @@
             </div>
         </section>
     </main>
+
+    <footer>
+        <div class="background">
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+        </div>
+        <div class="container">
+            <div class="headerLogo">
+                <img src="/success/resourse/static/logo/logo-258_autoLodge.png" alt="logo" />
+            </div>
+
+            <div class="footer-content">
+                <ul class="list">
+                    <li>
+                        <h3>Work schedule</h3>
+
+                        <ul class="workhours">
+                            <li>Mon - Fri: <span class="green">8:00</span> - <span class="red">17:00</span></li>
+                            <li>Sat: <span class="green">9:00</span> - <span class="red">14:00</span></li>
+                            <li><span class="red">Sun: weekend</span></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>Contact info</h3>
+                        <ul class="contact">
+                            <li>
+                                <img src="/success/resourse/static/icon/phone.png" alt="phone">
+                                <div class="content">
+                                    <span>office:  <a href="tel:(847)-669-0339">(847)-669-0339</a></span>
+                                    <span>cell:  <a href="tel:(630)-995-6942">(630)-995-6942</a></span>
+                                </div>
+                            </li>
+
+                            <li>
+                                <img src="/success/resourse/static/icon/point.png" alt="point">
+                                <div class="content">
+                                    <span>Addres:  <a href="#">2617 S IL Route 47 Woodstock, IL 60098</a></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>Navigations</h3>
+                        <ul class="nav">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Invertory</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">locations</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>Polis</h3>
+
+                        <ul class="polis">
+                            <li><a href="#">Privacy polis</a></li>
+                            <li><a href="#">cookie polis</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>For Dealer </h3>
+
+                        <ul class="polis">
+                            <li><a href="#">Sig in</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_bottom">
+                <p>© 2000-2023 Auto Lodge. All rights reserved. Unauthorized use strictly prohibited.</p>
+            </div>
+        </div>
+    </footer>
+
+<!--    POPUPS ZONE ---------------------------------->
+
+    <div class="popup contactME">
+        <div class="wrapper contact">
+            <div class="header"><button class="btn-ui-close">
+                <img src="/success/resourse/static/icon/close.svg" alt="close" />
+            </button></div>
+
+            <div class="container_popup">
+                <h2>Contact Me</h2>
+
+                <div class="line"></div>
+
+                <div class="content">
+                    <form>
+
+                        <div class="wrapperInputPopup">
+                            <div class="icon">
+                                <div class="display">
+                                    <img src="success/resourse/static/icon/people.svg" alt="people" />
+                                </div>
+                            </div>
+
+                            <input type="text" placeholder="Your name" id="nameOfInputContactMe" />
+                        </div>
+
+                        <div class="wrapperInputPopup">
+                            <div class="icon initSelector" data-type="phone" data-validation="addOfInputContactMe">
+                                <div class="display">
+                                    <img src="success/resourse/static/icon/phoneContact.svg" alt="people" />
+                                </div>
+
+                                <ul class="list">
+                                    <li data-type="mail"><img src="/success/resourse/static/icon/mail.svg" alt="mail"></li>
+                                    <li data-type="phone" class="active" ><img src="/success/resourse/static/icon/phoneContact.svg" alt="mail" data-type="phone"></li>
+                                </ul>
+
+                                <button class="btn_close">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect x="0.796875" y="1.28369" width="20" height="20" transform="rotate(-1.39412 0.796875 1.28369)" fill="url(#pattern0)"/>
+                                        <defs>
+                                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                                <use xlink:href="#image0_690_1701" transform="scale(0.015625)"/>
+                                            </pattern>
+                                            <image id="image0_690_1701" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEN0lEQVR4nO1aS4gUVxStCYmOYFZZiAEDoqJZxKgRDehCN/GDn102CVkIjsMMXe+c1zNuX9Cdn0aJ0Y0u3Ip7FU0WxlGSqMGtn1FRV2NPIon/z8hlqqHtvB6nX71XVQN14MLQVVPn3lPvVd2690ZRiRIlSpQoERRa60UAekkeIfkLyVsARkm+EJO/AdyUYwAOk9yhlFoYTWUopZaQrAG4T3LM0e4B2E/yy2iKoAvAZgCXUgTdzi5qrTcJR1REkFxB8s8Agb9jAH4HsDwqCkjOAPATgNehg28S4TWAg8aY7lyDV0otJHktq8At9lccxwvyCn4lyYc5Bt9YDaNa69VZB78BwJO8g2+yxyTXZxI8ya8B/FeAoFtXwpPgK0GN7/m/8w52AhHqwZ4JxphuAFfzDnISJg/lGd4FIHmoAMFN1g54DR7AcpKvPDr4zMLx3ONWkJxkha/4u3xneABGLAKMeOa45CVt1lpv8b1EAQy38pC87ZtHXtepBUCYD5trFgG8Z5QAhlIFr7VeGiB4sQsWoYdCcMVxvNhZAJK1EE4BOGXhOh1I7L3OAiBdMWMiAU5YuE4EEuCucxmLYRwSAY628pE8FoqP5HyXu9+bZaIivwUUvKdjAThewAwlwC6L4LsD8h1yWQG/BnRo0MK3MyDfWZcVcDvgkuzNeMvdclkB9YACfGcR/PuAfCMuAjwP5ZCk1xa+rQFXwLM8BDg9QfFkrWUFrG1z9/4heSYPAeopCC9WKpXpcRx/Jn+3Hq9Wq1+1+eRuDf7ywMDAvJ6eno9Ins96Cww7kj0AMLtxHWPMtCSlftM4x9b3S8ptjevIuTX53yZ/Zsu1M3sIcryJ2TGZUmpbG0E3N1bV4ODgp63H5bdEwLrtGZGItC3L1+ARR7J/kx7e/6C1ngPgt76+vpkWAT4m+Ue1Wp3bRsBvSD7KLBEiuSPFnntpe9cLjDEftqnUdCXHbMH3yjVd/SG5vWMB1Lt70lUI6d990DF5kygkf8zlY0gg/XkPIpx0KVMnTdeTHvjvRK7A+HCCl5Z2HMezJsvb39//iTwrPHHvSTvlMebJkWGl1Ofv45TlSvJ6IUpiAlsik0KEUaXUmqgN5FgyOxSs9tgxtNabPDo0lqTYP7TyAPgWwFOfXL46xl2yhz079gaASV6Hcn3TnCkWoiQeuDXWcPK4mO/riq9S0o98AsDBAI6GslrkG5VKZTrJKwUILp/2uECGD0JWijzYQ/l8jkIPR6GgIzIAVkVZgOT6ZDBprCD2WCm1LpPgG5ABBN89fcc7P5rZnW/zTMhtbqhRMovyhDGmO2lrec8TJjDhqsmbKSoKACwLNEzReteHvCc5PkFyY6BhhwuZTYP6gHyGAtgn/fkUd/uODDiQ/CKayojjeIHU5QD8DOAcgBuSUMmXYWL1pAZwVs6Rc53LWCVKlChRokQ0WbwFVOfX7V//DAQAAAAASUVORK5CYII="/>
+                                        </defs>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <input type="tel" placeholder="+1 (000)-000-0000" id="addOfInputContactMe" />
+                        </div>
+
+                        <button disabled class="btn-ui-send">send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preloader">
+        <img src="/success/resourse/static/logo/logo-258_autoLodge.png" alt="logo" class="animationFadeInOut" />
+    </div>
 
     <script src="./success/scripts/app.min.js"></script>
 </body>
