@@ -1,0 +1,39 @@
+.inventory-page {
+  min-height: 500px;
+}
+.inventory-page > .home__section > .bg_affects > .light_wrapper > .mainLight {
+  position: absolute;
+  height: 70%;
+  width: 3px;
+  left: 0;
+  top: 500px;
+  background: black;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  -webkit-box-shadow: 0px 4px 250px 201px transparent;
+          box-shadow: 0px 4px 250px 201px transparent;
+  z-index: 2;
+}
+.inventory-page > .home__section > .bg_affects > .light_wrapper > .mainLight > .fakeLight {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 420px;
+  height: 100%;
+  background: black;
+  left: -430px;
+  right: auto;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  border-radius: 50%;
+  z-index: 3;
+}
+.inventory-page > .home__section > .bg_affects > .light_wrapper > .mainLight:last-child {
+  right: 0;
+  left: auto;
+}
+.inventory-page > .home__section > .bg_affects > .light_wrapper > .mainLight:last-child > .fakeLight {
+  left: auto;
+  right: -430px;
+}

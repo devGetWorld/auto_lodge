@@ -1,0 +1,245 @@
+.popup{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  transition: .3s ease-in-out;
+  & > .wrapper{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 865px;
+    border-radius: 17px;
+    background: #242424;
+    box-shadow: 0px 0px 29px 13px rgba(0, 0, 0, 0.52);
+    padding: 21px 32px;
+    & > .header{
+      display: flex;
+      justify-content: flex-end;
+      transition: .3s ease-in-out;
+      user-select: none;
+      &:hover{
+        opacity: .7;
+      }
+    }
+
+    & > .container_popup{
+      padding: 14px 91px;
+
+      & > h2{
+        color: #FFF;
+        text-align: center;
+        font-family: Inter;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 39px;
+        text-align: center;
+      }
+      & > .line{
+        width: 100%;
+        height: 4px;
+        background: #303030;
+      }
+
+      & > .content{
+        & > form{
+          padding: 40px 0;
+
+          & .btn-ui-send{
+            margin-top: 50px;
+          }
+        }
+      }
+    }
+
+
+    &.contact{
+
+    }
+  }
+}
+
+.popup-fullscreen{
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(26px);
+  & > .container{
+    display: grid;
+    grid-template-columns: 130px 1fr 130px;
+    grid-column-gap: 40px;
+    & > .wrapper{
+      &:first-child, &:last-child{
+        display: flex;
+        align-items: center;
+        & > button{
+          transition: .3s ease-in-out;
+          &:hover{
+            opacity: .7;
+          }
+          &:disabled{
+            opacity: .7;
+          }
+        }
+      }
+      &.mainSlide{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & > .containerSlides{
+          & > .mainViewPort{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            & > img{
+              width: 1000px;
+              height: 600px;
+              object-fit: cover;
+              border-radius: 57px;
+              box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+            }
+          }
+
+          & > .slidesAll{
+            border-radius: 0px 0px 68px 68px;
+            background: #1A1A1A;
+            width: auto;
+            height: 130px;
+            position: relative;
+            top: -30px;
+            padding-top: 30px;
+            & .swiper-slide{
+              padding-top: 10px;
+              display: flex;
+              justify-content: center;
+              transition: .3s ease-in-out;
+              padding-right: 40px;
+              &-active{
+                background: #7545FF;
+              }
+              & > .wrapper > img{
+                border-radius: 33px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.popup.contactAutolodge{
+  & > .wrapper{
+    & > .container_popup{
+      & > .buttons-switch{
+        user-select: none;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        & > button{
+          width: 100%;
+          border-radius: 15px 0px 0px 0px;
+          background: #353535;
+          padding: 8px;
+          color: #8A8A8A;
+          text-align: center;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          transition: .3s ease-in-out;
+          &:hover{
+            opacity: .7;
+          }
+          &.active{
+            background: #C242FF;
+            color: #353535;
+            cursor: default;
+            &:hover{
+              opacity: 1;
+            }
+          }
+          &:last-child{
+            border-radius: 0px 15px 0px 0px;
+          }
+        }
+      }
+
+      & > .line{
+        margin-bottom: 25px;
+      }
+
+      & > .content{
+        & > div{
+          transition: .3s ease-in-out;
+        }
+        & > .getPhone{
+          display: none;
+          opacity: 0;
+          & > .view{
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 28px;
+            width: 100%;
+            max-width: 401px;
+            background: #303030;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &:last-child{
+              margin-bottom: 0;
+            }
+            & > img{
+              margin-left: 10px;
+            }
+            & > p{
+              color: #555;
+              text-align: center;
+              font-family: Inter;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+              margin-left: 15px;
+              margin-right: 20px;
+            }
+            & > .copyBord{
+              width: 55px;
+              height: 55px;
+              background: #161616;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              transition: .3s ease-in-out;
+              &:hover{
+                opacity: .7;
+              }
+            }
+          }
+          & > button{
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

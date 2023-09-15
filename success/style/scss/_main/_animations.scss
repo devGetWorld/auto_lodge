@@ -8,6 +8,83 @@
   animation: keyframes_turnOnLight 1s forwards;
 }
 
+.animationFadeInOut{
+  animation: keyframes_fadeInOut 3s infinite;
+}
+
+.animationChangeTitle{
+  animation: keyframes_change .500s forwards;
+}
+
+@keyframes keyframes_change {
+  from {
+    top: -80px;
+    opacity: 1;
+  }
+
+  50%{
+    top: -50px;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: -90px
+  }
+}
+
+@keyframes keyframes_openPopupAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-100px) translateX(-50%);
+  }
+
+  10%{
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) translateX(-50%);
+  }
+}
+
+@keyframes keyframes_fadeInOut {
+  from {
+    opacity: 1;
+  }
+
+  50%{
+    opacity: .3;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blinking {
+  from {
+    opacity: 1;
+  }
+
+  50%{
+    opacity: .5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
 @keyframes keyframes_navigations_hover {
       0% {
         opacity: 0;
@@ -98,6 +175,15 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes animationRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
