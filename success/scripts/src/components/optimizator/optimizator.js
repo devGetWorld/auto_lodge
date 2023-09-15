@@ -1,6 +1,7 @@
 export class Optimizator {
     private elements
     private OldPosition = window.scrollY
+
     constructor(elements) {
         this.elements = elements
 
@@ -14,13 +15,18 @@ export class Optimizator {
 
     }
 
+    public doRestore(){
+        setTimeout(() => this.watchProccess(),100)
+    }
 
     private watchProccess(){
+
+        console.log(this.elements)
 
         this.elements.forEach((el) => {
 
             if(el.type === "lightAnim"){
-                if(el.container.length > 0){
+                if(el.container && el.container.length > 0){
                     let getElements = el.container
                     getElements.forEach((element) => {
                         let getContainer = element.id
@@ -35,14 +41,16 @@ export class Optimizator {
                     })
                 }
 
-                if(el.mainLight.length > 0){
+                if(el.mainLight && el.mainLight.length > 0){
                     let getElements = el.mainLight
                     getElements.forEach((element) => {
                         let getContainer = element.id
                         let DiffrentPosition = this.getDiffrentPosition(getContainer)
 
                         if(DiffrentPosition > 200){
-                            el.action("turnOff", element)
+                            if(el.add && el.add !== "disabledTurnOff"){
+                                el.action("turnOff", element)
+                            }
                         }else{
                             el.action("turnOn", element)
                         }
@@ -50,7 +58,7 @@ export class Optimizator {
                     })
                 }
 
-                if(el.add_light.length > 0){
+                if(el.add_light && el.add_light.length > 0){
                     let getElements = el.add_light
                     getElements.forEach((element) => {
                         let getContainer = element.id
@@ -67,6 +75,40 @@ export class Optimizator {
 
 
                 return
+            }
+
+            if(el.type === "LockFilter"){
+                let getDiffrent = this.getDiffrentPosition(el.container, false)
+                let getBottom = el.container.offsetHeight; //2400
+                let getContentH = el.content.offsetHeight
+
+                if(getDiffrent <= 50){
+                    el.content.style.position = "fixed"
+                    el.container.querySelector(".fakeContent").style.display = "block"
+
+                    if(Math.abs(getDiffrent) >= (getBottom - getContentH)){
+                        el.content.style.position = "absolute"
+                        el.content.style.top = "auto"
+                        el.content.style.bottom = "0"
+                        el.content.style.transform = "translateY(0)"
+                        el.container.querySelector(".fakeContent").style.display = "block"
+                    }else{
+                        el.content.style.position = "fixed"
+                        el.content.style.top = "50%"
+                        el.content.style.transform = "translateY(-50%)"
+                        el.content.style.bottom = "auto"
+                        el.container.querySelector(".fakeContent").style.display = "block"
+                    }
+
+                }else{
+                    el.content.style.position = "static"
+                    el.content.style.transform = "none"
+                    el.container.querySelector(".fakeContent").style.display = "none"
+                }
+
+
+
+                return;
             }
 
             let getContainer = el.container
@@ -100,9 +142,11 @@ export class Optimizator {
 
     }
 
-    private getDiffrentPosition(getContainer) {
+    private getDiffrentPosition(getContainer, isAbs=true) {
         const elementPosition = getContainer.getBoundingClientRect().top;
-        return Math.abs(elementPosition)
+        if(isAbs) return Math.abs(elementPosition)
+
+        return elementPosition
     }
 
     private disabledProgram(element){

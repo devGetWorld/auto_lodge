@@ -55,4 +55,55 @@ export class Swipers {
             },
         })
     }
+
+    public static  initProductSwiper(){
+        const btnLeft = document.getElementById("swiper_product-left")
+        const btnRight = document.getElementById("swiper_product-right")
+
+
+        new Swiper(document.getElementById("swiper_product"),{
+            loop: false,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            slidesPerGroup: 1,
+            navigation: {
+                prevEl: btnLeft,
+                nextEl: btnRight,
+            },
+        })
+    }
+
+    public static initFullScreen(){
+
+        new Swiper(document.getElementById("fullSwiperWrapperSmall"),{
+            loop: false,
+            slidesPerView: 8,
+            slidesPerGroup: 1,
+            navigation: {
+                // prevEl: btnLeft,
+                // nextEl: btnRight,
+            },
+        })
+    }
+
+    public static initAutoSwiper(){
+        document.querySelectorAll(".initAutoSwiper").forEach((el) => {
+
+            new Swiper(el,{
+                loop: true,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                effect: 'fade',
+                noSwiping: true,
+                allowTouchMove: false,
+                autoplay:{
+                    delay: 3000
+                },
+                fadeEffect: {
+                    crossFade: true,
+                    delay: 700
+                },
+            })
+        })
+    }
 }

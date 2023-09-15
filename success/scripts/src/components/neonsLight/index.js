@@ -51,11 +51,21 @@ export class NeonsLight{
         }
     }
 
-    private turnOnLight = (element) => {
+    private getDataColor(){
+        let getData = document.querySelector("#mainSwiper")
 
+        if(getData){
+            let data = getData.querySelector(".swiper-slide.swiper-slide-active")
+            return {color: data.getAttribute("data-color"), shadow: data.getAttribute("data-shadow")}
+        }else{
+            let data = document.querySelector(".leftLight.mainLight")
+            return {color: data.getAttribute("data-color"), shadow: data.getAttribute("data-shadow")}
+        }
+    }
+
+    private turnOnLight = (element) => {
         if(element.classList.contains("mainLight")){
-            let getData = document.querySelector("#mainSwiper").querySelector(".swiper-slide.swiper-slide-active")
-            let data = {color: getData.getAttribute("data-color"), shadow: getData.getAttribute("data-shadow")}
+            let data = this.getDataColor()
             element.querySelector(".fakeLight").style.boxShadow = `0px 4px 250px 201px ${data.shadow}`
             element.style.background = `${data.color}`
 

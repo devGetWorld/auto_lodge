@@ -1,3 +1,5 @@
+import {Validation} from "./validation";
+
 export class InputPrice {
     private priceDom = []
 
@@ -42,13 +44,13 @@ export class InputPrice {
 
             const totalRegistration = parseInt(parseInt(data.carTax) + parseInt(data.title) + parseInt(data.plates) + parseInt(data.docs)).toFixed(0)
             let totalToPay = parseInt(parseInt(data.carPrice) + parseInt(data.carTax) + parseInt(data.title) + parseInt(data.plates) + parseInt(data.docs)).toFixed(0)
-            totalToPay = this.formatedPrice(totalToPay)
+            totalToPay = Validation.validationByNumbers(totalToPay)
             //remove wait
             getContainerView.querySelector(".tax__input").innerHTML = data.carTax + "$"
             getContainerView.querySelector(".title__input").innerHTML = data.title+ "$"
             getContainerView.querySelector(".plates__input").innerHTML = data.plates+ "$"
             getContainerView.querySelector(".docs__input").innerHTML = data.docs+ "$"
-            getContainerView.querySelector(".reg__total").innerHTML = totalRegistration + "$"
+            getContainerView.querySelector(".reg__total").innerHTML = totalRegistration
             if(globalPrice) globalPrice.innerHTML = totalToPay
 
             getContainerView.querySelector(".holder").style.opacity = 0
@@ -60,32 +62,6 @@ export class InputPrice {
             const globalPrice = document.querySelector(".totalToPay")
             if(globalPrice) globalPrice.innerHTML = 0
         }
-    }
-
-    private formatedPrice(value){
-
-        if(value.length === 4){
-            let firstPart = value.slice(0, 1);
-            let secondPart = value.slice(1);
-
-            value = firstPart + " " + secondPart;
-        }
-
-        if(value.length === 5){
-            let firstPart = value.slice(0, 2);
-            let secondPart = value.slice(2);
-
-            value = firstPart + " " + secondPart;
-        }
-
-        if(value.length === 6){
-            let firstPart = value.slice(0, 3);
-            let secondPart = value.slice(3);
-
-            value = firstPart + " " + secondPart;
-        }
-
-        return value
     }
 
     private initEventListener(e){
@@ -108,16 +84,21 @@ export class InputPrice {
             }
         }
 
+        if(value.length > 6) {
+            value = value.substr(0, value.length - 1)
+            value = Validation.validationByNumbers(value, "$")
+
+            input.value = value.value
+            return
+        }
+
         if(parseInt(value[0]) === 0){
             value = value.substr(1, value.length)
         }
 
-        value = this.formatedPrice(value)
+        value = Validation.validationByNumbers(value, "$")
 
-
-        value = value + '$';
-
-        input.value = value;
+        input.value = value.value;
 
         this.output_data(e.target)
     }
